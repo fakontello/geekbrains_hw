@@ -22,8 +22,9 @@ while number > 0:
 
 age = int(input('Введите свой возраст: \n'))
 name = str(input('Как вас зовут?\n'))
-expect = name, age
-print(expect)
+expect = age
+name = expect
+print(expect, name)
 
 # Задача-3: Запросите у пользователя его возраст.
 # Если ему есть 18 лет, выведите: "Доступ разрешен",
