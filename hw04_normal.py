@@ -85,4 +85,4 @@ with open('test.txt', 'r', encoding='UTF-8') as f:
     for i in f:
         repeats = r'(.)\1+'
         for match in re.finditer(repeats, i):    # Вывел все повторяющиеся элементы, но не смог вывести из этого элемент максимальной длины
-            
+            print(match.group())
