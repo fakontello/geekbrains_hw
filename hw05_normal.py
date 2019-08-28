@@ -17,7 +17,7 @@
 # Содержимое файла easy.py
 
 import os
-import shutil
+
 
 if __name__ == '__main__':
     print('Easy')
@@ -68,7 +68,10 @@ def change_dir(path):
 
 if __name__ == '__main__':
     change_dir()
+
+
 # Решение задачи:
+
 
 import os
 import easy as easy
