@@ -58,20 +58,6 @@ if __name__ == '__main__':
     list_dir()
 
 
-def current_file_copy():
-    name_file = os.path.realpath(__file__)
-    new_file = name_file +'.copy'
-    if os.path.isfile(new_file) != True:
-        shutil.copy(name_file, new_file)
-        return new_file + ' - успешно создан'
-    else:
-        return 'Файл уже был скопирован'
-
-
-if __name__ == '__main__':
-    current_file_copy()
-
-
 def change_dir(path):
     try:
         os.chdir(path)
