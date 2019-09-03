@@ -6,12 +6,24 @@ from math import sqrt
 
 
 class Triangle:
-    ab = 10
-    bc = 10
-    ac = 10
+    ab = 0
+    xa = 1
+    ya = 2
+    xb = 3
+    yb = -1
+    xc = 2
+    yc = 5
+    bc = 0
+    ac = 0
     h = 0
     p = 0
     s = 0
+
+    def sides(self):
+        self.ab = sqrt((self.xb - self.xa) ** 2 + (self.yb - self.ya) ** 2)
+        self.bc = sqrt((self.xc - self.xb) ** 2 + (self.yc - self.yb) ** 2)
+        self.ac = sqrt((self.xc - self.xa) ** 2 + (self.yc - self.ya) ** 2)
+        print(self.ab, self.bc, self.ac)
 
     def height(self):
         self.p = 1/2 * (self.ab + self.bc + self.ac)
@@ -28,6 +40,7 @@ class Triangle:
 
 
 triangle_sq = Triangle()
+triangle_sq.sides()
 triangle_sq.height()
 triangle_sq.square()
 triangle_sq.perimeter()
