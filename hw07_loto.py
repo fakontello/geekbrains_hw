@@ -90,6 +90,12 @@ class RandomCard:
                 i += 1
         return index_list
 
+
+class PlayerCard(RandomCard):
+    def __init__(self):
+        super().__init__()
+        self.name = 'Ваша карточка'
+
     def show_card(self):
         all_number = self.all_number
         card_for_print = []
@@ -99,20 +105,28 @@ class RandomCard:
                 if len(one_string[i]) == 1:
                     one_string[i] = one_string[i].ljust(2, ' ')
             card_for_print.append(' '.join(one_string))
-        a = f'------{self.name}--------\n {card_for_print[0]}\n {card_for_print[1]}\n {card_for_print[2]}\n---------------------------'
+        a = f'------{self.name}--------\n {card_for_print[0]}\n {card_for_print[1]}\n {card_for_print[2]}\
+        \n---------------------------'
         return a
-
-
-class PlayerCard(RandomCard):
-    def __init__(self):
-        super().__init__()
-        self.name = 'Ваша карточка'
 
 
 class ComputerCard(RandomCard):
     def __init__(self):
         super().__init__()
         self.name = 'Карточка компьютера'
+
+    def show_card(self):
+        all_number = self.all_number
+        card_for_print = []
+        for string in all_number:
+            one_string = list(map(str, string))
+            for i in range(len(one_string)):
+                if len(one_string[i]) == 1:
+                    one_string[i] = one_string[i].ljust(2, ' ')
+            card_for_print.append(' '.join(one_string))
+        b = f'--- {self.name} ---\n {card_for_print[0]}\n {card_for_print[1]}\n {card_for_print[2]}\
+        \n---------------------------'
+        return b
 
 
 class Game:
@@ -171,9 +185,13 @@ class Game:
                         break
                     keg_in_card = 'Бочонок найден'
                 if keg_in_card == 'не найден':
-                    print('Вы ошиблись игра окончена')
+                    print('Вы ошиблись. Игра окончена!')
                     break
             elif answer == 'n':
+                continue
+            elif answer != 'y' or 'n':
+                print('Введите в ответ y либо n')
+            elif answer == 'y' or 'n':
                 continue
             else:
                 break
